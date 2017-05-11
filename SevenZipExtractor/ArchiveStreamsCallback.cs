@@ -22,13 +22,7 @@ namespace SevenZipExtractor
 
         public int GetStream(uint index, out ISequentialOutStream outStream, AskMode askExtractMode)
         {
-            if (askExtractMode != AskMode.kExtract)
-            {
-                outStream = null;
-                return 0;
-            }
-
-            if (this.streams == null)
+            if (askExtractMode != AskMode.kExtract || this.streams == null)
             {
                 outStream = null;
                 return 0;
